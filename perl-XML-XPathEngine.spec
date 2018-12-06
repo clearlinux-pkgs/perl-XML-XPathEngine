@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-XPathEngine
 Version  : 0.14
-Release  : 5
+Release  : 6
 URL      : https://cpan.metacpan.org/authors/id/M/MI/MIROD/XML-XPathEngine-0.14.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MI/MIROD/XML-XPathEngine-0.14.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libx/libxml-xpathengine-perl/libxml-xpathengine-perl_0.14-1.debian.tar.xz
