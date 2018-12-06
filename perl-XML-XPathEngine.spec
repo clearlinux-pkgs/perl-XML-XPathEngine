@@ -79,17 +79,17 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Boolean.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Expr.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Function.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Literal.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/LocationPath.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/NodeSet.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Number.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Root.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Step.pm
-/usr/lib/perl5/vendor_perl/5.28.1XML/XPathEngine/Variable.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Boolean.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Expr.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Function.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Literal.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/LocationPath.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/NodeSet.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Number.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Root.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Step.pm
+/usr/lib/perl5/vendor_perl/5.28.1/XML/XPathEngine/Variable.pm
 
 %files dev
 %defattr(-,root,root,-)
