@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-XPathEngine
 Version  : 0.14
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/M/MI/MIROD/XML-XPathEngine-0.14.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MI/MIROD/XML-XPathEngine-0.14.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libx/libxml-xpathengine-perl/libxml-xpathengine-perl_0.14-1.debian.tar.xz
@@ -12,6 +12,7 @@ Summary  : 'a re-usable XPath engine for DOM-like trees'
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
 Requires: perl-XML-XPathEngine-license = %{version}-%{release}
+Requires: perl-XML-XPathEngine-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -23,6 +24,7 @@ INSTALLATION
 Summary: dev components for the perl-XML-XPathEngine package.
 Group: Development
 Provides: perl-XML-XPathEngine-devel = %{version}-%{release}
+Requires: perl-XML-XPathEngine = %{version}-%{release}
 
 %description dev
 dev components for the perl-XML-XPathEngine package.
@@ -36,18 +38,28 @@ Group: Default
 license components for the perl-XML-XPathEngine package.
 
 
+%package perl
+Summary: perl components for the perl-XML-XPathEngine package.
+Group: Default
+Requires: perl-XML-XPathEngine = %{version}-%{release}
+
+%description perl
+perl components for the perl-XML-XPathEngine package.
+
+
 %prep
 %setup -q -n XML-XPathEngine-0.14
-cd ..
-%setup -q -T -D -n XML-XPathEngine-0.14 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libxml-xpathengine-perl_0.14-1.debian.tar.xz
+cd %{_builddir}/XML-XPathEngine-0.14
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/XML-XPathEngine-0.14/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/XML-XPathEngine-0.14/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -57,7 +69,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -66,7 +78,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-XML-XPathEngine
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-XML-XPathEngine/deblicense_copyright
+cp %{_builddir}/XML-XPathEngine-0.14/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-XML-XPathEngine/0cc28c6b84235810470600e06e45d061816cd359
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -79,17 +91,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Boolean.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Expr.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Function.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Literal.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/LocationPath.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/NodeSet.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Number.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Root.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Step.pm
-/usr/lib/perl5/vendor_perl/5.28.2/XML/XPathEngine/Variable.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -101,4 +102,18 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-XML-XPathEngine/deblicense_copyright
+/usr/share/package-licenses/perl-XML-XPathEngine/0cc28c6b84235810470600e06e45d061816cd359
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Boolean.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Expr.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Function.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Literal.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/LocationPath.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/NodeSet.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Number.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Root.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Step.pm
+/usr/lib/perl5/vendor_perl/5.30.1/XML/XPathEngine/Variable.pm
