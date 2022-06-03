@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-XPathEngine
 Version  : 0.14
-Release  : 20
+Release  : 21
 URL      : https://cpan.metacpan.org/authors/id/M/MI/MIROD/XML-XPathEngine-0.14.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MI/MIROD/XML-XPathEngine-0.14.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libx/libxml-xpathengine-perl/libxml-xpathengine-perl_0.14-1.debian.tar.xz
@@ -106,14 +106,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Boolean.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Expr.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Function.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Literal.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/LocationPath.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/NodeSet.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Number.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Root.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Step.pm
-/usr/lib/perl5/vendor_perl/5.34.0/XML/XPathEngine/Variable.pm
+/usr/lib/perl5/*
